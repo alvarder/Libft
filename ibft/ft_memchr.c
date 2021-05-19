@@ -6,7 +6,7 @@
 /*   By: agarcia- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/25 16:39:25 by agarcia-          #+#    #+#             */
-/*   Updated: 2021/01/27 16:24:12 by agarcia-         ###   ########.fr       */
+/*   Updated: 2021/02/06 16:33:44 by agarcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	*ft_memchr(const void *s, int c, size_t n)
 	b = 0;
 	while (b < n)
 	{
-		if (str[b] == a)
+		if (str[b] == c)
 		{
 			return (&str[b]);
 		}

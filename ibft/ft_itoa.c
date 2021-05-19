@@ -5,55 +5,56 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: agarcia- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/02 17:06:14 by agarcia-          #+#    #+#             */
-/*   Updated: 2021/02/03 17:22:04 by agarcia-         ###   ########.fr       */
+/*   Created: 2021/02/09 17:39:10 by agarcia-          #+#    #+#             */
+/*   Updated: 2021/02/17 16:54:38 by agarcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		contar(int n)
+int		value(int nbr)
 {
-	int dig;
-
-	dig = 0;
-	if (n < 0)
-	{
-		n = n * -1;
-		dig++;
-	}
-	while (n % 10 > 0)
-	{
-		dig++;
-		n = n / 10;
-	}
-	return (dig);
+	if (nbr < 0)
+		return (-nbr);
+	return (nbr);
 }
 
-char	*ft_itoa(int n)
+int		getlen(int nbr)
+{
+	int len;
+
+	len = 0;
+	if (nbr <= 0)
+		len++;
+	while (nbr != 0)
+	{
+		++len;
+		nbr = nbr / 10;
+	}
+	return (len);
+}
+
+char	*ft_itoa(int nbr)
 {
 	char	*num;
-	int		a;
+	int		len;
 
-	a = contar(n);
-	if (!(num = malloc((a + 1) * sizeof(char))))
+	len = getlen(nbr);
+	if (!(num = malloc(sizeof(char) * (len + 1))))
 		return (0);
-	num[a--] = '\0';
-	if (n == 0)
+	num[len] = '\0';
+	if (nbr < 0)
+		num[0] = '-';
+	else if (nbr == 0)
 	{
 		num[0] = 48;
-		return (num);
+		num[len] = '\0';
 	}
-	if (n < 0)
+	while (nbr != 0)
 	{
-		num[0] = '-';
-		n = n * -1;
-	}
-	while (n > 0)
-	{
-		num[a] = 48 + (n % 10);
-		n = n / 10;
-		a--;
+		--len;
+		num[len] = value(nbr % 10) + '0';
+		nbr = nbr / 10;
 	}
 	return (num);
 }

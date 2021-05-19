@@ -6,7 +6,7 @@
 /*   By: agarcia- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/23 13:55:57 by agarcia-          #+#    #+#             */
-/*   Updated: 2021/01/27 16:16:59 by agarcia-         ###   ########.fr       */
+/*   Updated: 2021/02/11 17:04:21 by agarcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 void	*ft_memccpy(void *dst, const void *src, int c, size_t n)
 {
-	unsigned int	a;
-	char			*src2;
-	char			*dst2;
+	unsigned int			a;
+	unsigned char			*src2;
+	unsigned char			*dst2;
 
-	src2 = (char *)src;
-	dst2 = (char *)dst;
+	src2 = (unsigned char *)src;
+	dst2 = (unsigned char *)dst;
 	a = 0;
 	while (a < n)
 	{
